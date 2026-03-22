@@ -11,13 +11,45 @@ CreateBlog is a template-driven personal blog starter. Users clone the repositor
 - GitHub Pages deployment workflow in `.github/workflows/deploy.yml`
 - A local setup command and a new-post helper script
 
-## Quick start
+## Run after download
+
+### 1. Clone the repository
+
+```bash
+git clone git@github.com:lancelot-st/CreateBlog.git
+cd CreateBlog
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
+```
+
+### 3. Initialize your blog
+
+```bash
 npm run setup
+```
+
+This command will ask for:
+
+- site title
+- site description
+- author name
+- GitHub username
+- repository name
+- template
+- accent color
+- click effect
+
+### 4. Start local development
+
+```bash
 npm run dev
 ```
+
+Then open [http://localhost:4321](http://localhost:4321) in your browser.
 
 ## Create your own blog
 
@@ -31,15 +63,30 @@ npm run dev
    - accent color
    - click effect
 4. Edit `blog.config.json` if you want more control over navigation or metadata.
-5. Write posts as Markdown files inside `src/content/posts/`.
-6. Push to `main`.
-7. In GitHub repository settings, set Pages to use `GitHub Actions`.
+5. Start the local site with `npm run dev`.
+6. Write posts as Markdown files inside `src/content/posts/`.
+7. Push to `main`.
+8. In GitHub repository settings, set Pages to use `GitHub Actions`.
 
 ## Write a new post
 
 ```bash
 npm run new-post -- --title "My First Post"
 ```
+
+The new Markdown file will be created inside `src/content/posts/`.
+
+## Publish to GitHub Pages
+
+After editing your blog locally, publish it with:
+
+```bash
+git add .
+git commit -m "feat: update blog"
+git push
+```
+
+If GitHub Pages is configured to use `GitHub Actions`, each push to `main` will trigger a new deployment.
 
 ## Key files
 
