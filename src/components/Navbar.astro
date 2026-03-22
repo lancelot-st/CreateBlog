@@ -1,0 +1,20 @@
+---
+import { config, linkTo } from "../lib/site";
+---
+
+<header class="site-header shell">
+  <a class="brand" href={linkTo("/")}>
+    <span class="brand-mark">{config.author.avatar}</span>
+    <span>
+      <strong>{config.site.title}</strong>
+      <small>{config.author.headline}</small>
+    </span>
+  </a>
+  <nav class="nav-links" aria-label="Primary navigation">
+    {config.navigation.map((item) => (
+      <a href={linkTo(item.href)} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noreferrer" : undefined}>
+        {item.label}
+      </a>
+    ))}
+  </nav>
+</header>

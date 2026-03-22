@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getTagIndex } from "../../lib/posts";
+import { linkTo } from "../../lib/site";
+
+const tags = await getTagIndex();
+---
+
+<BaseLayout title="Tags" description="Explore posts by tag.">
+  <section class="section-heading">
+    <span>Index</span>
+    <h1>Tags</h1>
+    <p>Use tags to group your writing by topic, series, or visual experiment.</p>
+  </section>
+  <section class="tag-cloud">
+    {tags.map((tag) => (
+      <a class="tag-chip" href={linkTo(`/tags/${tag.slug}`)}>
+        <span>{tag.name}</span>
+        <strong>{tag.count}</strong>
+      </a>
+    ))}
+  </section>
+</BaseLayout>

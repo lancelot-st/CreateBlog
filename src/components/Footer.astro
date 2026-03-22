@@ -1,0 +1,16 @@
+---
+import { config, linkTo } from "../lib/site";
+---
+
+<footer class="site-footer shell">
+  <div>
+    <p class="footer-title">{config.site.title}</p>
+    <p>{config.author.bio}</p>
+  </div>
+  <div class="footer-links">
+    {config.social.map((item) => (
+      <a href={item.href} target="_blank" rel="noreferrer">{item.label}</a>
+    ))}
+    <a href={linkTo("/tags")}>Explore tags</a>
+  </div>
+</footer>

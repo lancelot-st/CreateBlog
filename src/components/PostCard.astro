@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { config, linkTo, readingTime, slugify } from "../lib/site";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+  priority?: boolean;
+}
+
+const { post, priority = false } = Astro.props;
+const minutes = readingTime(post.body);
+---
+
+<article class={`post-card ${priority ? "priority" : ""}`}>
+  <div class="post-meta">
+    <span>{post.data.pubDate.toLocaleDateString(config.site.language)}</span>
+    {config.appearance.showReadingTime && <span>{minutes} min read</span>}
+  </div>
+  <h2>
+    <a href={linkTo(`/posts/${post.id}`)}>{post.data.title}</a>
+  </h2>
+  <p>{post.data.description}</p>
+  <div class="tag-row">
+    {post.data.tags.map((tag) => (
+      <a class="tag-chip" href={linkTo(`/tags/${slugify(tag)}`)}>{tag}</a>
+    ))}
+  </div>
+</article>

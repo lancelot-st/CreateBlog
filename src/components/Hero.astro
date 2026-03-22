@@ -1,0 +1,38 @@
+---
+import { config, linkTo } from "../lib/site";
+import { getTheme } from "../lib/theme";
+
+interface Props {
+  postCount: number;
+  tagCount: number;
+}
+
+const { postCount, tagCount } = Astro.props;
+const theme = getTheme();
+---
+
+<section class={`hero ${theme.template.heroClass}`}>
+  <div class="hero-copy">
+    <p class="eyebrow">{config.homepage.featuredTagline}</p>
+    <h1>{config.homepage.heroTitle}</h1>
+    <p>{config.homepage.heroText}</p>
+    <div class="hero-actions">
+      <a class="button primary" href={linkTo("/tags")}>Browse tags</a>
+      <a class="button ghost" href="#posts">Read latest posts</a>
+    </div>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric-card">
+      <span>Template</span>
+      <strong>{theme.template.name}</strong>
+    </div>
+    <div class="metric-card">
+      <span>Posts</span>
+      <strong>{postCount}</strong>
+    </div>
+    <div class="metric-card">
+      <span>Tags</span>
+      <strong>{tagCount}</strong>
+    </div>
+  </div>
+</section>

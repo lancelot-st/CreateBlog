@@ -21,6 +21,7 @@ node_modules/
 dist/
 build/
 coverage/
+.astro/
 
 # Python cache
 __pycache__/

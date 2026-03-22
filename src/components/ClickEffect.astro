@@ -1,0 +1,36 @@
+---
+import { getTheme } from "../lib/theme";
+
+const { clickEffect } = getTheme();
+---
+
+{clickEffect !== "none" && (
+  <script define:vars={{ clickEffect }} is:inline>
+    const palette = {
+      sparkle: ["var(--accent)", "#ffffff", "var(--accent-soft)"],
+      pulse: ["var(--accent)", "var(--accent-soft)"],
+      confetti: ["var(--accent)", "#f97316", "#38bdf8", "#34d399"]
+    };
+
+    const colors = palette[clickEffect] || palette.sparkle;
+
+    function spawnParticle(x, y, index) {
+      const dot = document.createElement("span");
+      dot.className = "click-particle";
+      dot.style.left = `${x}px`;
+      dot.style.top = `${y}px`;
+      dot.style.background = colors[index % colors.length];
+      dot.style.setProperty("--dx", `${(Math.random() - 0.5) * 90}px`);
+      dot.style.setProperty("--dy", `${(Math.random() - 0.5) * 90}px`);
+      document.body.appendChild(dot);
+      window.setTimeout(() => dot.remove(), 700);
+    }
+
+    window.addEventListener("click", (event) => {
+      const amount = clickEffect === "confetti" ? 14 : clickEffect === "pulse" ? 6 : 10;
+      for (let index = 0; index < amount; index += 1) {
+        spawnParticle(event.clientX, event.clientY, index);
+      }
+    });
+  </script>
+)}

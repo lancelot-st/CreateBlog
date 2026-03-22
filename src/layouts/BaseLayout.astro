@@ -1,0 +1,49 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import ClickEffect from "../components/ClickEffect.astro";
+import { config, absoluteUrl } from "../lib/site";
+import { getTheme } from "../lib/theme";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${config.site.title}` : config.site.title;
+const pageDescription = description ?? config.site.description;
+const theme = getTheme();
+---
+
+<!doctype html>
+<html lang={config.site.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={absoluteUrl(Astro.url.pathname)} />
+    <link rel="canonical" href={absoluteUrl(Astro.url.pathname)} />
+  </head>
+  <body class={theme.template.pageClass} data-card-style={theme.cardStyle}>
+    <div
+      class="theme-root"
+      style={`--accent:${theme.accent.accent};--accent-soft:${theme.accent.accentSoft};`}
+    >
+      <Navbar />
+      <main class="shell page-shell">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <ClickEffect />
+  </body>
+</html>
+
+<style is:global>
+  @import "../styles/global.css";
+</style>

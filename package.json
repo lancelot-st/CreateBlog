@@ -1,0 +1,22 @@
+{
+  "name": "createblog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "setup": "node scripts/setup-blog.mjs",
+    "new-post": "node scripts/new-post.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "*",
+    "typescript": "*"
+  }
+}

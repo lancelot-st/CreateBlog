@@ -1,0 +1,49 @@
+{
+  "site": {
+    "title": "CreateBlog",
+    "description": "A template-driven starter for personal blogs powered by Markdown and GitHub Pages.",
+    "language": "zh-CN",
+    "url": "https://lancelot-st.github.io",
+    "basePath": "/CreateBlog",
+    "githubUser": "lancelot-st",
+    "repo": "CreateBlog"
+  },
+  "author": {
+    "name": "Lancelot",
+    "headline": "Build a personal blog from templates, then shape it into your own style.",
+    "bio": "CreateBlog starts with opinionated defaults, then lets you tune navigation, tags, accents, layout rhythm, and click effects without leaving your local Markdown workflow.",
+    "avatar": "CB"
+  },
+  "homepage": {
+    "heroTitle": "Launch your own blog from Markdown.",
+    "heroText": "Pick a visual template, tune your navigation and click effects, write posts locally, and publish to GitHub Pages.",
+    "featuredTagline": "Templates included"
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Tags",
+      "href": "/tags"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/lancelot-st/CreateBlog"
+    }
+  ],
+  "social": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/lancelot-st"
+    }
+  ],
+  "appearance": {
+    "template": "spotlight",
+    "accent": "amber",
+    "clickEffect": "sparkle",
+    "cardStyle": "elevated",
+    "showReadingTime": true
+  }
+}
