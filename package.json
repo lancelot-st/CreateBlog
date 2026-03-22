@@ -13,10 +13,10 @@
     "new-post": "node scripts/new-post.mjs"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "astro": "5.18.1"
   },
   "devDependencies": {
-    "@astrojs/check": "*",
-    "typescript": "*"
+    "@astrojs/check": "0.9.8",
+    "typescript": "5.9.3"
   }
 }
